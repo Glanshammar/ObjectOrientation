@@ -7,6 +7,9 @@ class Program
         // Encapsulation
         PersonTest.Run();
 
+        // Inheritance
+        AnimalTest.Run();
+        
         // Polymorphism
         List<UserError> errors = new List<UserError>
         {
