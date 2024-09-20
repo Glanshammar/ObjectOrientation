@@ -2,22 +2,23 @@
 
 public class PersonHandler
 {
-    public void SetAge(Person pers, int age)
-    {
-        pers.Age = age;
-    }
 
-    public Person CreatePerson(int age, string fname, string lname, double height = 0, double weight = 0)
+    public Person CreatePerson(string fname, string lname, int age, double height = 0, double weight = 0)
     {
         Person person = new Person();
-        person.Age = age;
         person.FName = fname;
         person.LName = lname;
+        person.Age = age;
         person.Height = height;
         person.Weight = weight;
         return person;
     }
 
+    public void SetAge(Person pers, int age)
+    {
+        pers.Age = age;
+    }
+    
     // Additional methods for handling Person objects
     public void SetName(Person pers, string fname, string lname)
     {
@@ -38,5 +39,10 @@ public class PersonHandler
     public string GetFullName(Person pers)
     {
         return $"{pers.FName} {pers.LName}";
+    }
+
+    public void SayHello(Person pers)
+    {
+        Console.WriteLine($"Hello, my name is {GetFullName(pers)}!");
     }
 }
