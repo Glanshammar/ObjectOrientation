@@ -8,9 +8,9 @@ public interface IPerson
 // Abstract base class Animal
 public abstract class Animal(string name, double weight, int age)
 {
-    public string Name { get; set; } = name;
-    public double Weight { get; set; } = weight;
-    public int Age { get; set; } = age;
+    public string Name { get; protected set; } = name;
+    public double Weight { get; protected set; } = weight;
+    public int Age { get; protected set; } = age;
 
     public abstract void DoSound();
 
@@ -42,11 +42,11 @@ public class Dog(string name, double weight, int age, string breed) : Animal(nam
 
 public class Hedgehog(string name, double weight, int age, int nrOfSpikes) : Animal(name, weight, age)
 {
-    private int NrOfSpikes { get; } = nrOfSpikes;
+    private int SpikeAmount { get; } = nrOfSpikes;
 
     public override void DoSound() => Console.WriteLine("Snuffle!");
 
-    public override string Stats() => base.Stats() + $", Number of Spikes: {NrOfSpikes}";
+    public override string Stats() => base.Stats() + $", Number of Spikes: {SpikeAmount}";
 }
 
 public class Worm(string name, double weight, int age, bool isPoisonous) : Animal(name, weight, age)
